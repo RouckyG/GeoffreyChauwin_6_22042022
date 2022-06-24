@@ -84,6 +84,27 @@ form input {
     border-radius: 5px;
 }
 
+.sort_menu{
+    display: flex;
+    margin: 20px 50px;
+    font-size: 18px;
+    font-weight: bold;
+    align-items: center;
+}
+
+#sort_options {
+    margin-left: 15px;
+    background-color: #901C1C;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.sort_option {
+    font-weight: bold;
+}
+
 #lightbox {
     display: none;
     position: fixed;

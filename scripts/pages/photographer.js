@@ -43,7 +43,6 @@ async function displayData(photographer) {
 
 async function displayMedias(medias) {
     const mediasSection = document.querySelector(".photograph_media");
-    const mediasdetails = document.getElementsByClassName(".media_details");
     mediasSection.innerHTML="";
 
     medias.forEach((media) => {
@@ -67,6 +66,7 @@ async function displayMedia(mediaKey) {
 
     lightboxContainer.innerHTML = "";
     lightboxContainer.appendChild(LightboxCardDOM);
+
     const closeLightboxButton = document.querySelector(".close_lightbox");
     closeLightboxButton.addEventListener("click",()=>{closeLightbox()});
 };
@@ -77,13 +77,31 @@ async function addLikes(span){
     span.innerHTML = spanSplit.join(" ");
 }
 
+async function sortMedia(sort){
+    const medias = Medias
+    switch(sort){
+        case "like":
+            medias.sort((a,b) => a.likes - b.likes)
+            break;
+        case "date":
+            medias.sort((a,b) => new Date(a.date) - new Date(b.date))
+            break;
+        case "title":
+            medias.sort((a,b) => a.title.localeCompare(b.title))
+            break;
+    }
+
+    displayMedias(medias)
+}
+
 async function init() {
     const photographer = await getPhotographer();
     displayData( photographer );
 
     const medias = await getMedias();
     displayMedias( medias );
-    
+
+    document.getElementById("sort_options").addEventListener("change", (e)=>sortMedia(e.target.value))
 };
 
 init();
