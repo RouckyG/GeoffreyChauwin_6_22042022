@@ -4,7 +4,7 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Fisheye - photographe </title>
   </head>
   <body>
@@ -31,11 +31,20 @@
 					<div>
 						<label>Prénom</label>
 						<input />
+            <label>Nom</label>
+						<input />
+            <label>Email</label>
+						<input />
+            <label>Votre message</label>
+						<input />
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
+    <div id="lightbox">
+    </div>
+    <script src="scripts/utils/lightbox.js"></script>
     <script src="scripts/factories/photographer.js"></script>
     <script src="scripts/factories/media.js"></script>
     <script src="scripts/utils/contactForm.js"></script>

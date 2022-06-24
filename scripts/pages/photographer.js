@@ -1,7 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const photographerId = +urlParams.get('id')
-
-console.log(photographerId);
+const Medias = [];
 
 async function getPhotographer() {
     const response = await fetch("data/photographers.json");
@@ -10,7 +9,6 @@ async function getPhotographer() {
     let result = null
     photographers.forEach((photographer) =>{
         if(photographer.id == photographerId){
-            console.log('test1', photographer)
             result = photographer;
         }
     });
@@ -26,8 +24,8 @@ async function getMedias() {
 
     medias.forEach((media) =>{
         if(media.photographerId == photographerId){
-            console.log(media.title);
             photographerMedias.push(media);
+            Medias.push(media);
         }
     });
 
@@ -45,12 +43,31 @@ async function displayData(photographer) {
 
 async function displayMedias(medias) {
     const mediasSection = document.querySelector(".photograph_media");
+    const mediasdetails = document.getElementsByClassName(".media_details");
+    mediasSection.innerHTML="";
 
     medias.forEach((media) => {
         const mediaModel = mediaFactory(media);
         const mediaCardDOM = mediaModel.getMediaCardDOM();
+
+        mediaCardDOM.firstChild.addEventListener("click", ()=>displayMedia(Medias.indexOf(media)));
         mediasSection.appendChild(mediaCardDOM);
     });
+};
+
+async function displayMedia(mediaKey) {
+
+    const mediaModel = mediaFactory(Medias[mediaKey]);
+
+    displayLightbox();
+
+    const lightboxContainer = document.querySelector("#lightbox");
+    const LightboxCardDOM = mediaModel.getLightboxCardDOM(mediaKey,);
+
+    lightboxContainer.innerHTML = "";
+    lightboxContainer.appendChild(LightboxCardDOM);
+    const closeLightboxButton = document.querySelector(".close_lightbox");
+    closeLightboxButton.addEventListener("click",()=>{closeLightbox()});
 };
 
 async function init() {
@@ -59,6 +76,7 @@ async function init() {
 
     const medias = await getMedias();
     displayMedias( medias );
+    
 };
 
 init();

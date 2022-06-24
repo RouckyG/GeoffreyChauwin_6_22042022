@@ -39,6 +39,9 @@ function photographerFactory(data) {
     function getUserHeaderCardDOM(){
         const article = document.createElement( "article" );
         
+        const detail = document.createElement( "div" );
+        detail.classList= "photograph_detail";
+
         const h1 = document.createElement("h1");
         h1.textContent = name;
 
@@ -48,12 +51,20 @@ function photographerFactory(data) {
         const p = document.createElement( "p" );
         p.textContent = tagline;
 
-        article.appendChild(h1);
-        article.appendChild(h2);
-        article.appendChild(p);
+        detail.appendChild(h1);
+        detail.appendChild(h2);
+        detail.appendChild(p);
+
+        const img = document.createElement( "img" );
+        img.setAttribute( "src" , picture);
+        img.setAttribute( "alt" , "photo de " + name);
+
+        article.appendChild(detail);
+        article.appendChild(img);
 
         return (article);
     }
+
 
     return { name, id, city, country, tagline, price, picture, getUserCardDOM ,getUserHeaderCardDOM}
 }
