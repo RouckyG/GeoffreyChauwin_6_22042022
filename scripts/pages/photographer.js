@@ -50,6 +50,7 @@ async function displayMedias(medias) {
         const mediaModel = mediaFactory(media);
         const mediaCardDOM = mediaModel.getMediaCardDOM();
 
+        mediaCardDOM.lastChild.lastChild.addEventListener("click", (e)=>addLikes(e.target));
         mediaCardDOM.firstChild.addEventListener("click", ()=>displayMedia(Medias.indexOf(media)));
         mediasSection.appendChild(mediaCardDOM);
     });
@@ -62,13 +63,19 @@ async function displayMedia(mediaKey) {
     displayLightbox();
 
     const lightboxContainer = document.querySelector("#lightbox");
-    const LightboxCardDOM = mediaModel.getLightboxCardDOM(mediaKey,);
+    const LightboxCardDOM = mediaModel.getLightboxCardDOM(mediaKey);
 
     lightboxContainer.innerHTML = "";
     lightboxContainer.appendChild(LightboxCardDOM);
     const closeLightboxButton = document.querySelector(".close_lightbox");
     closeLightboxButton.addEventListener("click",()=>{closeLightbox()});
 };
+
+async function addLikes(span){
+    let spanSplit = span.innerHTML.split(" ");
+    spanSplit[0] = parseInt(spanSplit[0])+1;
+    span.innerHTML = spanSplit.join(" ");
+}
 
 async function init() {
     const photographer = await getPhotographer();
