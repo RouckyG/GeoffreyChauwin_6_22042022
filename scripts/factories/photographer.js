@@ -1,11 +1,12 @@
 function photographerFactory(data) {
     const { name, id, city, country, tagline, price, portrait  } = data;
-
     const picture = `assets/photographers/${portrait}`;
 
+    // crée l'affiche d'un photographe avec sa photo et ses information
+    // create the article of the photograph with its picture and its details
     function getUserCardDOM() {
         const article = document.createElement( "article" );
-
+        
         const a = document.createElement("a");
         a.setAttribute( "href" , "photographer.html?id=" + id );
 
@@ -36,6 +37,8 @@ function photographerFactory(data) {
         return (article);
     }
 
+    // crée le bandeau avec les informations du photographe pour la page photographe
+    // create the header with the details of the photograph for the photograph page
     function getUserHeaderCardDOM(){
         const article = document.createElement( "article" );
         
@@ -64,7 +67,6 @@ function photographerFactory(data) {
 
         return (article);
     }
-
 
     return { name, id, city, country, tagline, price, picture, getUserCardDOM ,getUserHeaderCardDOM}
 }

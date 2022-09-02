@@ -1,11 +1,14 @@
+// récupère les informations des photographes
+// get the data of all photographers
 async function getPhotographers() {
     const response = await fetch('data/photographers.json');
     const data = await response.json();
     
     return data;
 }
-console.log(getPhotographers());
 
+// affiche les informations de chaque photographe
+// display de data of each photographer
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
 
@@ -16,6 +19,8 @@ async function displayData(photographers) {
     });
 };
 
+// lance les fonctions permettant l'affichage des élément de la page
+// start all functions allowing the display of the page's element
 async function init() {
     const { photographers } = await getPhotographers();
     displayData(photographers);
