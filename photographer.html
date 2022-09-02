@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -10,17 +10,17 @@
   <body>
     <header>
       <a href="/P6/GeoffreyChauwin_6_22042022/">
-        <img src="assets/images/logo.png" class="logo" />
+        <img src="assets/images/logo.png" class="logo" alt="logo Fisheye"/>
       </a>
     </header>
     <main id="main">
-      <div class="photograph_header">
-        <button class="contact_button" onclick="displayModal()">
+      <header class="photograph_header">
+        <button class="contact_button" onclick="displayModal()" aria-label="contactez-moi">
           Contactez-moi
         </button>
-      </div>
+      </header>
       <div class="sort_menu">
-        <label>Trier par</label>
+        <label for="sort_options">Trier par</label>
         <select id="sort_options">
           <option value="like" class="sort_option">Popularité</option>
           <option value="date" class="sort_option">Date</option>
@@ -28,28 +28,48 @@
         </select>
       </div>
       <div class="photograph_media"></div>
+      <div class="photograph_count">
+        <div class="photograph_totalLike">
+          <span></span>&hearts;
+        </div>
+        <div class="photograph_price">
+          <span></span>€ / jour
+        </div>
+      </div>
     </main>
-    <div id="contact_modal">
+    <section id="contact_modal">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" id="modal_closeButton" onclick="closeModal()" tabindex="0" alt="bouton de fermeture du formulaire"/>
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-            <label>Nom</label>
-						<input />
-            <label>Email</label>
-						<input />
-            <label>Votre message</label>
-						<input />
+				<form id="contact_form" action="">
+					<div class="form_container">
+            <div class="form_input">
+              <label for="firstName">Prénom</label>
+              <input id="firstName" type="text" name="firstName" required minlength="2" autofocus aria-label="Entrez votre prénom"/>
+              <span class="errorMessage" id="firstNameError">Votre prénom doit contenir au moins 2 caractères</span>
+            </div>
+            <div class="form_input">
+              <label for="lastName">Nom</label>
+              <input id="lastName" type="text" name="lastName" required minlength="2" aria-label="Entrez votre nom"/>
+              <span class="errorMessage" id="lastNameError">Votre nom doit contenir au moins 2 caractères</span>
+            </div>
+            <div class="form_input">
+              <label for="email">Email</label>
+              <input id="email" type="email" name="email" required aria-label="Entrez votre email"/>
+              <span class="errorMessage" id="emailError">Votre email doit être valide</span>
+            </div>
+            <div class="form_input">
+              <label for="message">Votre message</label>
+              <input id="message" type="text" name="message" required minlength="2" aria-label="Entrez votre message"/>
+              <span class="errorMessage" id="messageError">Votre message doit être valide et doit au moins avoir 10 caractères</span>
+            </div>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button id="submit_button" class="contact_button" aria-label="Envoyer votre message">Envoyer</button>
 				</form>
 			</div>
-		</div>
+		</section>
     <div id="lightbox">
     </div>
     <script src="scripts/utils/lightbox.js"></script>
@@ -59,3 +79,4 @@
     <script src="scripts/pages/photographer.js"></script>
   </body>
 </html>
+<!-- TODO implementer total like pour chaque photographe-->
