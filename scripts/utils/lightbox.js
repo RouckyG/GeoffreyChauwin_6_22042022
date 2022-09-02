@@ -1,9 +1,12 @@
+const lightbox = document.querySelector("#lightbox");
+
+
 function displayLightbox() {
-    const lightbox = document.getElementById("lightbox");
+    setTimeout(()=>{lightbox.focus()},100);
 	lightbox.style.display = "flex";
 }
 
 function closeLightbox() {
-    const lightbox = document.getElementById("lightbox");
+    setTimeout(()=>{document.querySelector(".photograph_media").firstChild.querySelector(".mediaPicture").focus()},100);
     lightbox.style.display = "none";
 }
