@@ -9,6 +9,7 @@ function photographerFactory(data) {
         
         const a = document.createElement("a");
         a.setAttribute( "href" , "photographer.html?id=" + id );
+        a.setAttribute( "aria-label" , name);
 
         const img = document.createElement( "img" );
         img.setAttribute( "src" , picture);
@@ -16,7 +17,6 @@ function photographerFactory(data) {
 
         const h2 = document.createElement( "h2" );
         h2.textContent = name;
-        h2.setAttribute( "aria-label" , name);
 
         const h3 = document.createElement( "h3" );
         h3.textContent = city + ", " + country;

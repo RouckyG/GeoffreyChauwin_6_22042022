@@ -50,7 +50,7 @@ async function displayData(photographer) {
 
     const totalLikeContainer = document.querySelector(".photograph_price").querySelector("span")
     totalLikeContainer.innerHTML = photographer.price
-};
+}
 
 // affiche les images et vidéos du photographe
 // display the pictures and videos of the photographer
@@ -68,7 +68,7 @@ async function displayMedias(medias) {
         mediaCardDOM.firstChild.addEventListener("keypress", (e)=>e.key="a" ? displayMedia(Medias.indexOf(media)):""); 
         mediasSection.appendChild(mediaCardDOM);
     });
-};
+}
 
 // affiche une image ou une video dans la lightbox
 // display a picture or video in the lightbox
@@ -87,7 +87,7 @@ async function displayMedia(mediaKey) {
     const closeLightboxButton = document.querySelector(".close_lightbox");
     closeLightboxButton.addEventListener("click",()=>{closeLightbox()});
     document.addEventListener("keydown",(event)=>{event.key === "Escape" ? closeLightbox() : ""})
-};
+}
 
 async function displayTotalLikes(){
     const totalLikeContainer = document.querySelector(".photograph_totalLike").querySelector("span")
@@ -145,6 +145,6 @@ async function init() {
     displayTotalLikes();
     
     document.getElementById("sort_options").addEventListener("change", (e)=>sortMedia(e.target.value))
-};
+}
 
 init();

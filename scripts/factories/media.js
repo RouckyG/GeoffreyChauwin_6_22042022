@@ -24,6 +24,7 @@ function mediaFactory(data) {
             // video.setAttribute("loop", true);
             video.setAttribute("mute", true);
             video.setAttribute("playsinline", true);
+            video.setAttribute( "alt" , title);
             video.setAttribute("tabindex","0");
             article.appendChild(video);   
         }
@@ -53,6 +54,7 @@ function mediaFactory(data) {
 
         const closeLightbox = document.createElement("button");
         closeLightbox.classList.add("close_lightbox");
+        closeLightbox.setAttribute("aria-label", "fermer la lightbox");
         lightbox.appendChild(closeLightbox);
 
         const closeLightboxIcon = document.createElement("span");
@@ -65,6 +67,7 @@ function mediaFactory(data) {
 
         const arrowLeft = document.createElement("button");
         arrowLeft.addEventListener("click",()=>{displayMedia((mediaKey+Medias.length-1) % Medias.length)});
+        arrowLeft.setAttribute("aria-label", "image précédente");
         document.addEventListener("keydown",(event)=>{event.key === "ArrowLeft" ? displayMedia((mediaKey+Medias.length-1) % Medias.length) : ""})
         lightboxContainer.appendChild(arrowLeft);
 
@@ -91,12 +94,14 @@ function mediaFactory(data) {
             video.setAttribute("loop", true);
             video.setAttribute("mute", true);
             video.setAttribute("playsinline", true);
+            video.setAttribute( "alt" , title);
             video.setAttribute("tabindex","0");
             lightboxMedia.appendChild(video);   
         }
 
         const arrowRight = document.createElement("button");
         arrowRight.addEventListener("click",()=>{displayMedia((mediaKey+1) % Medias.length)});
+        arrowRight.setAttribute("aria-label", "image suivante");
         document.addEventListener("keydown",(event)=>{event.key === "ArrowRight" ? displayMedia((mediaKey+1) % Medias.length) : ""})
         lightboxContainer.appendChild(arrowRight);
 

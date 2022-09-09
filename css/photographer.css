@@ -10,10 +10,55 @@
     background-color: white;    
 }
 
-.photograph-header {
+.photograph_header {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 5px 5%;
     background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
+    height: 290px;
+    padding: 25px 25px;
+}
+
+.photograph_header .contact_button {
+    position: relative;
+    right: 50vw;
+    min-width: 170px;
+}
+
+.photograph_header article {
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.photograph_header article h1 {
+    font-size: 52px;
+    font-weight: 400;
+    color: #D3573C;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.photograph_header article h2 {
+    font-size: 24px;
+    color: #901C1C;
+    font-weight: 400;
+    margin: 0;
+}
+
+.photograph_header article img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.photograph_detail {
+    max-width: 40%;
 }
 
 .contact_button {
@@ -197,6 +242,7 @@ form {
     position: absolute;
     right: 50px;
     height: 0px;
+    cursor: pointer;
 }
 
 .lightbox_container{

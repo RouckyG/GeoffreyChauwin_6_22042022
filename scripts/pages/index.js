@@ -17,13 +17,13 @@ async function displayData(photographers) {
         const userCardDOM = photographerModel.getUserCardDOM();
         photographersSection.appendChild(userCardDOM);
     });
-};
+}
 
 // lance les fonctions permettant l'affichage des élément de la page
 // start all functions allowing the display of the page's element
 async function init() {
     const { photographers } = await getPhotographers();
     displayData(photographers);
-};
+}
 
 init();
