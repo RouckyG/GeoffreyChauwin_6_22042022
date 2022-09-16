@@ -31,14 +31,14 @@ function isNameValid(name, nameError) {
     const regex = /^[a-z]{2,}([ ,.'-]?\w+)$/i;
     let isValid = true;
 
-    if (!name.value.match(regex)){
+    if(!name.value.match(regex)){
         isValid = false;
     
-        nameError.style.display='block';
+        nameError.style.display ='block';
         name.style.border = "1px solid red";
     }
-    else {
-        nameError.style.display='none';
+    else{
+        nameError.style.display ='none';
         name.style.border = "none";
     }
 
@@ -48,16 +48,16 @@ function isNameValid(name, nameError) {
 function isEmailValid(email, emailError) {
 
     // un mot au debut (+ . ou - + un mot) + @ + un mot (+ . ou - et un mot) + . + un mot de 2 ou 3 lettres a la fin.
-    const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
     let isValid = true;
 
-    if (!email.value.match(regex)){
+    if(!email.value.match(regex)){
         isValid = false;
-        emailError.style.display='block';
+        emailError.style.display ='block';
         email.style.border = "1px solid red";
     }
-    else {
-        emailError.style.display='none';
+    else{
+        emailError.style.display ='none';
         email.style.border = "none";
     }
 
@@ -84,7 +84,7 @@ function isMessageValid(message, messageError) {
     return isValid
 }
 
-function submitAnswers(event) {
+function submitAnswers() {
     
     if(isNameValid(firstName, firstNameError) && isNameValid(lastName, lastNameError) && isEmailValid(email, emailError) && isMessageValid(message,messageError))
     {

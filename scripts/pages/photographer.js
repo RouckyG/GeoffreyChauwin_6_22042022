@@ -61,11 +61,12 @@ async function displayMedias(medias) {
     medias.forEach((media) => {
         const mediaModel = mediaFactory(media);
         const mediaCardDOM = mediaModel.getMediaCardDOM();
+        const mediaIndex = Medias.indexOf(media)
 
         mediaCardDOM.lastChild.lastChild.addEventListener("click", (e)=>addLikes(e.target));
-        mediaCardDOM.lastChild.lastChild.addEventListener("keypress", (e)=>e.key="enter" ? addLikes(e.target): "");
-        mediaCardDOM.firstChild.addEventListener("click", ()=>displayMedia(Medias.indexOf(media)));
-        mediaCardDOM.firstChild.addEventListener("keypress", (e)=>e.key="a" ? displayMedia(Medias.indexOf(media)):""); 
+        mediaCardDOM.lastChild.lastChild.addEventListener("keypress", (e)=>e.key === "enter" ? addLikes(e.target): "");
+        mediaCardDOM.firstChild.addEventListener("click", ()=>displayMedia(mediaIndex));
+        mediaCardDOM.firstChild.addEventListener("keypress", (e)=>e.key === "a" ? displayMedia(mediaIndex): ""); 
         mediasSection.appendChild(mediaCardDOM);
     });
 }
