@@ -95,6 +95,10 @@ function submitAnswers(event) {
         document.querySelector("#contact_form").reset();
         closeModal();
     }
+    else
+    {
+        firstName.focus();
+    }
 }
 
 document.getElementById("submit_button").addEventListener("click", (event) => {

@@ -2,8 +2,9 @@ const lightbox = document.querySelector("#lightbox");
 
 
 function displayLightbox() {
-    setTimeout(()=>{lightbox.focus()},100);
 	lightbox.style.display = "flex";
+    
+    setTimeout(()=>{lightbox.querySelector(".lightbox_media").firstChild.focus()},100);
 }
 
 function closeLightbox() {
