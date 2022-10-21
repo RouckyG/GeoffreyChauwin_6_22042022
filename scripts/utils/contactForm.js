@@ -28,7 +28,7 @@ function closeModal() {
 function isNameValid(name, nameError) {
 
     // start with a word of 2 or more characters followed (or not) by a special character and another word
-    const regex = /^[a-z]{2,}([ ,.'-]?\w+)$/i;
+    const regex = /^[a-z]{1,}([ ,.'-]?\w+)$/i;
     let isValid = true;
 
     if(!name.value.match(regex)){

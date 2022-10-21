@@ -64,9 +64,9 @@ async function displayMedias(medias) {
         const mediaIndex = Medias.indexOf(media)
 
         mediaCardDOM.lastChild.lastChild.addEventListener("click", (e)=>addLikes(e.target));
-        mediaCardDOM.lastChild.lastChild.addEventListener("keypress", (e)=>e.key === "enter" ? addLikes(e.target): "");
+        mediaCardDOM.lastChild.lastChild.addEventListener("keypress", (e)=>e.key === "Enter" ? addLikes(e.target): "");
         mediaCardDOM.firstChild.addEventListener("click", ()=>displayMedia(mediaIndex));
-        mediaCardDOM.firstChild.addEventListener("keypress", (e)=>e.key === "a" ? displayMedia(mediaIndex): ""); 
+        mediaCardDOM.firstChild.addEventListener("keypress", (e)=>e.key === "Enter" ? displayMedia(mediaIndex): ""); 
         mediasSection.appendChild(mediaCardDOM);
     });
 }
@@ -74,6 +74,7 @@ async function displayMedias(medias) {
 // affiche une image ou une video dans la lightbox
 // display a picture or video in the lightbox
 async function displayMedia(mediaKey) {
+
 
     const mediaModel = mediaFactory(Medias[mediaKey]);
 
