@@ -19,7 +19,7 @@ async function displayData(photographers) {
     });
 }
 
-// lance les fonctions permettant l'affichage des élément de la page
+// lance les fonctions permettant l'affichage des éléments de la page
 // start all functions allowing the display of the page's element
 async function init() {
     const { photographers } = await getPhotographers();

@@ -25,6 +25,7 @@ function mediaFactory(data) {
             video.setAttribute("mute", true);
             video.setAttribute("playsinline", true);
             video.setAttribute( "alt" , title);
+            video.setAttribute( "aria-label" , title);
             video.setAttribute("tabindex","0");
             article.appendChild(video);   
         }
@@ -95,6 +96,7 @@ function mediaFactory(data) {
             video.setAttribute("mute", true);
             video.setAttribute("playsinline", true);
             video.setAttribute( "alt" , title);
+            video.setAttribute( "aria-label" , title);
             video.setAttribute("tabindex","0");
             lightboxMedia.appendChild(video);   
         }
